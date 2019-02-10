@@ -4,26 +4,69 @@
   <title>HTML Forms</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
-  <link rel="stylesheet" href="screen.css" />
+<link rel="stylesheet" href="assets/screen.css" />
 </head>
 <body class="g">
   <main id="content">
-    <h1>HTML Forms</h1>
+    <h1>Meal Delivery Service Client</h1>
     <form action="#null" method="get">
+      <section class="personal">
       <ol>
         <li>
-          <label for="email">Email Address</label>
+          <label for="name">Full Name</label>
+          <input type="text" name="name" id="name" placeholder="John H Doe" />
+        </li>
+        <li>
+          <label for="email">E-mail Address</label>
           <input type="email" name="email" id="email" placeholder="you@example.com" />
         </li>
         <li>
-          <label for="name">Name</label>
-          <input type="text" name="name" id="name" />
-        </li>
-        <li>
-          <label for="submit">Submit</label>
-          <input type="submit" name="submit" id="submit" value="Sign Up!" />
+          <label for="telephone">Phone Number</label>
+          <input type="tel" name="telephone" id="telephone" />
         </li>
       </ol>
+    </section>
+    <section class="home-address">
+        <fieldset>
+          <legend>Home Address</legend>
+          <label class="street" for="street">Street</label>
+          <input type="text" name="street" id="street" />
+
+          <label class="city" for="city">City</label>
+          <input type="text" name="city" id="city" />
+
+          <label class="state" for="state">State</label>
+          <input type="text" name="state" id="state" />
+
+          <label class="zip" for="zip">Zip</label>
+          <input type="text" name="zip" id="zip" />
+        </fieldset>
+      </section>
+      <section class="food">
+        <fieldset>
+          <legend>Meal Type</legend>
+          <input type="radio" name="food-type" id="veg" value="veg" />
+          <label for="veg">Vegetarian</label>
+          <input type="radio" name="food-type" id="non-veg" value="non-veg" checked />
+          <label for="non-veg">Non-Vegetarian</label>
+        </fieldset>
+      </section>
+        <section class="contact">
+          <fieldset>
+            <legend>Best Contact Method</legend>
+            <section>
+              <input type="radio" name="contact" id="cemail" value="cemail" checked />
+              <label for="cemail">Email</label>
+              <input type="radio" name="contact" id="cphone" value="cphone" />
+              <label for="cphone">Phone</label>
+              <input type="radio" name="contact" id="cmail" value="cmail" />
+              <label for="cmail">Mail</label>
+            </section>
+        </fieldset>
+      </section>
+        <section class="submit">
+            <input type="submit" name="submit" id="submit" value="Sign Up!" />
+        </section>
     </form>
   </main>
 </body>
