@@ -41,22 +41,22 @@ label::after {
 input[type="email"],
 input[type="text"],
 input[type="tel"],
-input[type="submit"]
-{
+input[type="submit"] {
   display: block;
 }
 
 legend {
-  font-size: 15px;
+  font-size: 1em;
   background-color: lightgrey;
 }
-section.home-address, section.food, section.contact{
+section.home-address, section.food, section.contact {
   display: grid;
   overflow: scroll;
   border: 2px groove;
-  width: 400px;
-  margin: 2px;
-  padding:2px;
+  width: 33%;
+  margin: 0.5em;
+  padding: 0.25em;
   background-color: lightblue;
   text-align: left;
+  font-size: inherit;
 }
