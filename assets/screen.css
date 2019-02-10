@@ -33,11 +33,12 @@ form li {
   display: flex;
   flex-flow: row wrap;
 }
+/*
 legend::after,
 label::after {
   content: ":";
 }
-
+*/
 input[type="email"],
 input[type="text"],
 input[type="tel"],
@@ -55,7 +56,7 @@ legend {
   display: grid;
   overflow: scroll;
   border: 0.111em groove;
-  width: 25%;
+  width: 33%;
   margin: 0.25em;
   padding: 0.125em;
   background-color: lightblue;
