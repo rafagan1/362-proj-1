@@ -10,7 +10,6 @@
   <main id="content">
     <h1>Meal Delivery Service Client</h1>
     <form action="#null" method="get">
-      <section class="personal">
       <ol>
         <li>
           <label for="name">Full Name</label>
@@ -24,47 +23,43 @@
           <label for="telephone">Phone Number</label>
           <input type="tel" name="telephone" id="telephone" />
         </li>
-      </ol>
-    </section>
-    <section class="home-address">
-        <fieldset>
-          <legend>Home Address</legend>
-          <label class="street" for="street">Street</label>
-          <input type="text" name="street" id="street" />
-          <label class="city" for="city">City</label>
-          <input type="text" name="city" id="city" />
-          <label class="state" for="state">State</label>
-          <input type="text" name="state" id="state" />
-          <label class="zip" for="zip">Zip</label>
-          <input type="text" name="zip" id="zip" />
-        </fieldset>
-      </section>
-      <section class="food">
-        <fieldset>
-          <legend>Meal Type</legend>
+        <li>Home Address:</li>
+          <ol class="home-fields">
+            <li>
+              <label class="street" for="street">Street</label>
+              <input type="text" name="street" id="street" />
+            </li>
+            <li>
+              <label class="city" for="city">City</label>
+              <input type="text" name="city" id="city" />
+            </li>
+            <li>
+              <label class="state" for="state">State</label>
+              <input type="text" name="state" id="state" />
+            </li>
+            <li>
+              <label class="zip" for="zip">Zip</label>
+              <input type="text" name="zip" id="zip" />
+            </li>
+          </ol>
+        <li>Meal Type:</li>
           <p><input type="radio" name="foodType" id="veg" value="veg" />
           <label for="veg">Vegetarian</label></p>
-          <p><input type="radio" name="foodType" id="nonVeg" value="nonVeg" checked />
-          <label for="nonVeg">Non-Vegetarian</label></p>
-        </fieldset>
-      </section>
-        <section class="contact">
-          <fieldset>
-            <legend>Best Contact Method</legend>
-            <section>
-              <p><input type="radio" name="contact" id="cemail" value="cemail" checked />
-              <label for="cemail">Email</label></p>
-              <p><input type="radio" name="contact" id="cphone" value="cphone" />
-              <label for="cphone">Phone</label></p>
-              <p><input type="radio" name="contact" id="cmail" value="cmail" />
-              <label for="cmail">Mail</label></p>
-            </section>
-        </fieldset>
-      </section>
-        <section class="submit">
+          <p><input type="radio" name="foodType" id="nonveg" value="nonveg" checked />
+          <label for="nonveg">Non-Vegetarian</label></p>
+        <li>Best Contact Method:</li>
+          <p><input type="radio" name="contact" id="cemail" value="cemail" checked />
+          <label for="cemail">Email</label></p>
+          <p><input type="radio" name="contact" id="cphone" value="cphone" />
+          <label for="cphone">Phone</label></p>
+          <p><input type="radio" name="contact" id="cmail" value="cmail" />
+          <label for="cmail">Mail</label></p>
+        <li>
           <input type="submit" name="submit" id="submit" value="Sign Up!" />
-        </section>
+        </li>
+      </ol>
     </form>
   </main>
+  <script src="site.js"></script>
 </body>
 </html>
