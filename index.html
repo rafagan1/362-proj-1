@@ -8,54 +8,50 @@
 </head>
 <body class="g">
   <main id="content">
-    <h1>Meal Delivery Service Client</h1>
+    <h1>Sign Up To Receive Free Meals</h1>
+    <p>
+      As a senior residence of the community, you may be eligible to have free
+      meals delivered to your residence. Enter your information below to have
+      someone contact you. First enter a name followed by a phone number and email.
+    </p>
     <form action="#null" method="get">
       <ol>
-        <li>
+        <li class="fullname">
           <label for="name">Full Name</label>
-          <input type="text" name="name" id="name" placeholder="John H Doe" />
+          <input type="text" name="name" id="name" placeholder="John Doe" />
         </li>
-        <li>
+        <li class="email">
           <label for="email">E-mail Address</label>
           <input type="email" name="email" id="email" placeholder="you@example.com" />
         </li>
-        <li>
+        <li class="phone">
           <label for="telephone">Phone Number</label>
           <input type="tel" name="telephone" id="telephone" />
         </li>
-        <li>Home Address:</li>
-          <ol class="home-fields">
+        <li class="meal">Meal Type:</li>
+          <ol>
             <li>
-              <label class="street" for="street">Street</label>
-              <input type="text" name="street" id="street" />
+              <input type="radio" name="foodType" id="veg" value="veg" />
+              <label for="veg">Vegetarian</label>
             </li>
             <li>
-              <label class="city" for="city">City</label>
-              <input type="text" name="city" id="city" />
-            </li>
-            <li>
-              <label class="state" for="state">State</label>
-              <input type="text" name="state" id="state" />
-            </li>
-            <li>
-              <label class="zip" for="zip">Zip</label>
-              <input type="text" name="zip" id="zip" />
+              <input type="radio" name="foodType" id="nonveg" value="nonveg" checked />
+              <label for="nonveg">Non-Vegetarian</label>
             </li>
           </ol>
-        <li>Meal Type:</li>
-          <p><input type="radio" name="foodType" id="veg" value="veg" />
-          <label for="veg">Vegetarian</label></p>
-          <p><input type="radio" name="foodType" id="nonveg" value="nonveg" checked />
-          <label for="nonveg">Non-Vegetarian</label></p>
-        <li>Best Contact Method:</li>
-          <p><input type="radio" name="contact" id="cemail" value="cemail" checked />
-          <label for="cemail">Email</label></p>
-          <p><input type="radio" name="contact" id="cphone" value="cphone" />
-          <label for="cphone">Phone</label></p>
-          <p><input type="radio" name="contact" id="cmail" value="cmail" />
-          <label for="cmail">Mail</label></p>
-        <li>
-          <input type="submit" name="submit" id="submit" value="Sign Up!" />
+        <li class="bestc">Best Contact Method:</li>
+          <ol>
+            <li>
+              <input type="radio" name="contact" id="cemail" value="cemail" />
+              <label for="cemail">Email</label>
+            </li>
+            <li>
+              <input type="radio" name="contact" id="cphone" value="cphone" checked />
+              <label for="cphone">Phone</label>
+            </li>
+          </ol>
+        <li class="tosubmit">
+          <input type="submit" name="signup" id="signup" value="Sign Up!" />
         </li>
       </ol>
     </form>
