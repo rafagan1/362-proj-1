@@ -3,61 +3,134 @@
   // Browser sanity check:
   if (!('querySelector' in document && 'addEventListener' in document)) {
     // Old, old browser. Say buh-bye
-    // console.log('Old browser');
+    console.log('Old browser');
     return;
   }
+
+  function validate_input(in_str, str_type)
+  {
+    var ret = false;
+    switch(str_type) {
+    case 'email':
+      var email_str = in_str;
+      var emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if (email_str.length >= 1 && email_str.match(emailformat)) {
+        ret = true;
+      }
+      break;
+    case 'phone':
+      var phone_str = in_str;
+      var clean_number = phone_str.replace(/\D/g, '');
+      // Remove any 1 apppearing at the start of the number
+      var sanitized_number = clean_number.replace(/^1/, '');
+      // Finally, check to see if the number is 10 digits long
+      if (sanitized_number.length === 10) {
+        console.log('That number looks great!');
+        ret = true;
+      }
+      break;
+    case 'name':
+      var name_str = in_str;
+      var clean_item = name_str.trim();
+      if (clean_item.length >= 1) {
+        console.log('Valid name');
+        ret = true;
+      }
+      break;
+    default:
+      break;
+    }
+    return(ret);
+  }
+
   // Using class demo as starter
-  var submit = document.querySelector('#submit');
+  var submit = document.querySelector('#signup');
 
   document.addEventListener('DOMContentLoaded', function(){
-    // console.log('OMG the DOM is loaded!!!1!');
-    // var heading_text = document.querySelector('#content h1').innerText;
-    // console.log('The heading text is:', heading_text);
+    var valid_email = false;
+    var valid_phone = false;
+    var valid_name = false;
+
+    console.log('OMG the DOM is loaded!!!1!');
+  //  var heading_text = document.querySelector('#content h1').innerText;
+  //  console.log('The heading text is:', heading_text);
+
+    var tel_input = document.querySelector('#telephone');
+    var name_input = document.querySelector('#name');
+    var email_input = document.querySelector('#email');
+    tel_input.value = "";
+    name_input.value = "";
+    email_input.value = "";
+    var name_STR = "";
+    var email_STR = "";
+    var phone_STR = "";
+    var disp = "";
+    var meal = "";
+
     // Disable the submit button until we are reasonable sure
     // that we have a ten-digit phone number
     submit.setAttribute('disabled', 'disabled');
-  });
 
-  // TELEPHONE
-  var tel_input = document.querySelector('#telephone');
-  tel_input.addEventListener('focus', function(){
-    console.log('OMG somebody focused on the telephone input');
-  });
-  tel_input.addEventListener('blur', function(){
-    console.log('OMG somebody navigated away from the telephone input');
-  });
+    // Name =====================================
+    name_input.addEventListener('keyup', function(){
+      console.log('name input is ', this.value);
+      valid_name = validate_input(this.value, 'name');
+      validate_all();
+      console.log('Valid name', valid_name);
+    });
 
-  tel_input.addEventListener('keyup', function(){
-    // Remove all non-digit characters from the telephone input's value
-    var clean_number = this.value.replace(/\D/g, '');
-    // Remove any 1 apppearing at the start of the number
-    var sanitized_number = clean_number.replace(/^1/, '');
-    // Finally, check to see if the number is 10 digits long
-    if (sanitized_number.length === 10) {
-      console.log('That number looks great!');
-      // If so, allow the form to be submitted
-      submit.removeAttribute('disabled');
+    // EMAIL
+    email_input.addEventListener('keyup', function(){
+      valid_email = validate_input(this.value, 'email');
+      validate_all();
+    });
+
+    //TELEPHONE ================================
+    //  var tel_input = document.querySelector('#telephone');
+    tel_input.addEventListener('keyup', function(){
+      valid_phone = validate_input(this.value, 'phone');
+      validate_all();
+    });
+
+    function validate_all() {
+      if (valid_name == true &&
+        valid_email == true &&
+        valid_phone == true) {
+        // All input items are valid. Allow forme
+        // to be submitted
+        submit.removeAttribute('disabled');
+      } else {
+        // One of the entry is not valid
+        submit.setAttribute('disabled', 'disabled');
+        }
     }
-  });
+    var signup = document.querySelector('#signup');
+    signup.addEventListener('focus', function() {
+      var veg = document.getElementById('veg').checked;
+      var pc = document.getElementById('cphone').checked;
 
-  // Name
-  var name_input = document.querySelector('#name');
+      meal = "Non-Vegetarian";
+      var contact = "Phone";
 
-  // EMAIL
-  var email_input = document.querySelector('#email');
+      if (veg == true) {
+         meal = "Vegatarian";
+      }
 
-  // Home Address
-  var street_input = document.querySelector('#street');
-  var city_input = document.querySelector('#city');
-  var state_input = document.querySelector('#state');
-  var zip_input = document.querySelector('#zip');
+      if (pc == false) {
+        contact = "Email";
+      }
 
-  // Meal Type
-  var veg_input = document.querySelector('#veg');
-  var nonVeg_input = document.querySelector('#nonVeg');
+      phone_STR = tel_input.value;
+      name_STR  = name_input.value;
+      email_STR = email_input.value;
+      disp = "Information entered: \nName = " + name_STR;
+      disp += "\nEmail = " + email_STR;
+      disp += "\nPhone = "+ phone_STR;
+      disp += "\nMeal Type = "+ meal;
+      disp += "\nContact Method = "+ contact;
+      // Alert the inputs
+      alert(disp);
+    });
 
-  // Contact method
-  var cemail_input = document.querySelector('#cemail');
-  var cphone_input = document.querySelector('#cphone');
-  var cmail_input = document.querySelector('#cmail');
+  }); // DOM
 }());
