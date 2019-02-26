@@ -49,7 +49,7 @@ h1 {
 }
 
 p {
-  font-size: 0.75em;
+  font-size: 0.5em;
   padding-bottom: 0.5em;
 }
 
@@ -96,17 +96,20 @@ input[type="submit"]:focus {
   background-color: lightgreen;
 }
 
-
-
 input[type="submit"]:hover {
   cursor: pointer;
   background-color: green;
 }
 
 input[type="submit"]:disabled {
-  background-color: rgba(67,176,183,0.2);
+  background-color: lightgrey;
 }
 
+.confirm {
+  background-color: blue;
+  font-size: 0.75em;
+  text-align: center;
+}
 /* Diagnostic CSS */
 /**
 * A quick baseline grid overlay using css+svg.
@@ -118,10 +121,6 @@ input[type="submit"]:disabled {
 * Inspired by [Basehold.it](https://basehold.it/).
 * @author leshido
 */
-
-body.g {
-  position: relative;
-}
 
 body.g::after {
   /* Change the `height` parameter here to match your base line-height. */
