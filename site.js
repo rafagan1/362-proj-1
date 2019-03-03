@@ -6,16 +6,13 @@
     console.log('Old browser');
     return;
   }
-  // return;
 
   document.addEventListener('DOMContentLoaded', function(){
+    // console.log('OMG the DOM is loaded!!!1!');
     var phone_number = 0;
     var valid_email = false;
     var valid_phone = false;
     var valid_name = false;
-
-    console.log('OMG the DOM is loaded!!!1!');
-
     var tel_input = document.querySelector('#telephone');
     var name_input = document.querySelector('#name');
     var email_input = document.querySelector('#email');
@@ -37,7 +34,6 @@
 
     // Name input =====================================
     name_input.addEventListener('input', function(){
-      console.log('name input is ', this.value);
       valid_name = validate_name(this.value, 'name');
       validate_all();
     });
@@ -57,23 +53,28 @@
     function validate_name(name_str) {
       var clean_item = name_str.trim();
       if (clean_item.length >= 1) {
-        console.log('Valid name');
-        return(true);
+        return(validate(clean_item, /^[A-Za-z,.-\s]+$/));
       }
       return(false);
     }
 
     function validate_all() {
-      if (valid_phone === true && valid_email === true && valid_name === true)
+      var dplay = document.getElementById('display');
+      if (valid_phone === true && valid_email === true)
       {
-        signup.removeAttribute('disabled');
-        return;
+        if (name_input.value.length < 1 || valid_name === false) {
+          dplay.innerText = "Must enter a name (Ex. John H. Doe)";
+          conf.hidden = false;
+        } else {
+          conf.hidden = true;
+          signup.removeAttribute('disabled');
+          return;
+        }
       }
       else if (phone_number.length > 10) {
-        alert('Maximum of 10 digits for phone number');
-      }
-      else if (name_input.value.length < 1 && valid_name === true) {
-        alert('Must enter a name');
+        dplay.innerText = "Maximum of 10 digits for phone number";
+        conf.hidden = false;
+        return;
       }
       signup.setAttribute('disabled', 'disabled');
       return;
