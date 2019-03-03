@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Merriweather:400,400i,700&subset=latin-ext');
+/* @import url('https://fonts.googleapis.com/css?family=Merriweather:400,400i,700&subset=latin-ext');*/
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -27,7 +27,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 html {
   background-color: rgba(255, 99, 71, 0.5);
-  font-family: Merriweather, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 1.125em; /* 18 / 16 = 1.125 */
   line-height: 1.2222222222em;  /*22 / 18 = 1.2222222222 (120% of font-size) */
   padding: 1.2222222222em; /* 22 / 18 = 1.2222222222 */
@@ -37,14 +37,16 @@ body.ng {
   background-color: inherit;
   min-height: 100%;
   padding: 0 0.8em;
+
 }
 h1 {
+  color: green;
+  display: block;
   font-size: 1.618em; /* 29.124 / 18 = 1.618 */
   line-height: 1.5107814861em; /* 44 / 29.124 = 1.5107814861 */
   text-align: center;
   padding-bottom: 0.5em;
   padding-top: 0.25em;
-  display: block;
   width: 100%;
 }
 
@@ -53,6 +55,7 @@ p {
   padding-bottom: 0.5em;
 }
 
+/* Forms */
 .fullname, .email, .phone, .meal, .bestc {
   padding-top: 0.5em;
 }
@@ -60,18 +63,17 @@ p {
   padding-top: 1.5em;
   padding-bottom: 0.5em;
 }
-
-label[for="name"],
-label[for="email"],
-label[for="telephone"] {
+.req {
   display: block;
   box-sizing: border-box;
 }
 
-label[for="name"]::after,
-label[for="email"]::after,
-label[for="telephone"]::after {
+.req::after {
   content: ":";
+}
+
+.radio {
+  font-size: 0.75em;
 }
 
 input[type="email"],
@@ -87,28 +89,37 @@ input[type="submit"] {
   width: 100%;
 }
 input[type="submit"] {
-  padding-top: 0.5em;
+  background-color: green;
+  border-radius: 1em;
+  cursor: pointer;
+  font-size: 50%;
+  min-height: 3em;
+  width: 33%;
 }
+
 input[type="email"]:focus,
 input[type="text"]:focus,
-input[type="tel"]:focus,
-input[type="submit"]:focus {
+input[type="tel"]:focus {
   background-color: lightgreen;
 }
 
-input[type="submit"]:hover {
-  cursor: pointer;
-  background-color: green;
-}
-
 input[type="submit"]:disabled {
-  background-color: lightgrey;
+  opacity: 0.5;
 }
 
+#alert {
+  padding-top: 0.5em;
+}
 .confirm {
-  background-color: blue;
+  background-color: lightblue;
   font-size: 0.75em;
   text-align: center;
+}
+
+@media screen and (min-width: 500px) {
+  .reason {
+    font-size: 0.75em;
+  }
 }
 /* Diagnostic CSS */
 /**

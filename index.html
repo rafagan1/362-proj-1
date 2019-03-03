@@ -9,7 +9,7 @@
 <body class="ng">
   <main id="content">
     <h1>Sign Up For Free Meals!!</h1>
-    <p>
+    <p class="reason">
       As a senior residence of the community, you may be eligible to have free
       meals delivered to your residence. Enter your information below to have
       someone contact you.
@@ -17,42 +17,31 @@
     <form action="#null" method="get">
       <ol>
         <li class="fullname">
-          <label for="name">Full Name</label>
-          <input type="text" name="name" id="name" />
+          <label class="req" for="name">Full Name</label>
+          <input type="text" name="name" id="name" required/>
         </li>
         <li class="email">
-          <label for="email">E-mail Address</label>
-          <input type="email" name="email" id="email" placeholder="you@example.com" />
+          <label class="req" for="email">E-mail Address</label>
+          <input type="email" name="email" id="email" placeholder="you@example.com" required/>
         </li>
         <li class="phone">
-          <label for="telephone">Phone Number</label>
-          <input type="tel" name="telephone" id="telephone" />
+          <label class="req" for="telephone">Phone Number</label>
+          <input type="tel" name="telephone" id="telephone" required/>
         </li>
         <li class="meal">Meal Type:</li>
-          <ol>
-            <li>
-              <input type="radio" name="foodType" id="veg" value="veg" />
-              <label for="veg">Vegetarian</label>
-            </li>
-            <li>
-              <input type="radio" name="foodType" id="nonveg" value="nonveg" checked />
-              <label for="nonveg">Non-Vegetarian</label>
-            </li>
-          </ol>
+          <input type="radio" name="foodType" id="nonveg" value="nonveg" checked />
+          <label class="radio" for="nonveg">Non-Vegetarian</label>
+          <input type="radio" name="foodType" id="veg" value="veg" />
+          <label class="radio" for="veg">Vegetarian</label>
         <li class="bestc">Best Contact Method:</li>
-          <ol>
-            <li>
-              <input type="radio" name="contact" id="cemail" value="cemail" />
-              <label for="cemail">Email</label>
-            </li>
-            <li>
-              <input type="radio" name="contact" id="cphone" value="cphone" checked />
-              <label for="cphone">Phone</label>
-            </li>
-          </ol>
-          <li id="alert">
+          <input type="radio" name="contact" id="cemail" value="cemail" checked/>
+          <label class="radio" for="cemail">Email</label>
+          <input type="radio" name="contact" id="cphone" value="cphone" />
+          <label class="radio" for="cphone">Phone</label>
+
+        <li id="alert">
             <p class="confirm"></p>
-          </li>
+        </li>
         <li class="tosubmit">
           <input type="submit" name="signup" id="signup" value="Sign Up!" />
         </li>
