@@ -64,6 +64,7 @@
       {
         if (name_input.value.length < 1 || valid_name === false) {
           dplay.innerText = "Must enter a name (Ex. John H. Doe)";
+          dplay.style.color = "Red"
           conf.hidden = false;
         } else {
           conf.hidden = true;
@@ -73,6 +74,7 @@
       }
       else if (phone_number.length > 10) {
         dplay.innerText = "Maximum of 10 digits for phone number";
+        dplay.style.color = "Red"
         conf.hidden = false;
         return;
       }
@@ -84,6 +86,7 @@
     signup.addEventListener('focus', function() {
       var dplay = document.getElementById('display');
       dplay.innerText = "Thank you for signing up!!";
+      dplay.style.color = "Blue"
       conf.hidden = false;
     });
 
