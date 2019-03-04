@@ -16,32 +16,38 @@
     </p>
     <form action="#null" method="get">
       <ol>
+        <!-- Name -->
         <li class="fullname">
           <label class="req" for="name">Full Name</label>
-          <input type="text" name="name" id="name" required/>
+          <input type="text" name="name" id="name" placeholder="John H.Doe" required/>
         </li>
+        <!-- Email-->
         <li class="email">
           <label class="req" for="email">E-mail Address</label>
           <input type="email" name="email" id="email" placeholder="you@example.com" required/>
         </li>
+        <!--Phone-->
         <li class="phone">
           <label class="req" for="telephone">Phone Number</label>
-          <input type="tel" name="telephone" id="telephone" required/>
+          <input type="tel" name="telephone" id="telephone" required />
         </li>
-        <li class="meal">Meal Type:</li>
-          <input type="radio" name="foodType" id="nonveg" value="nonveg" checked />
-          <label class="radio" for="nonveg">Non-Vegetarian</label>
-          <input type="radio" name="foodType" id="veg" value="veg" />
-          <label class="radio" for="veg">Vegetarian</label>
+        <!--Meal-->
+        <li class="meal">Vegetarian:</li>
+          <input type="radio" name="foodType" id="nonveg" checked />
+          <label class="radiotype" for="nonveg">No</label>
+          <input type="radio" name="foodType" id="veg" />
+          <label class="radiotype" for="veg">Yes</label>
+        <!--Desired Contact  Method-->
         <li class="bestc">Best Contact Method:</li>
-          <input type="radio" name="contact" id="cemail" value="cemail" checked/>
-          <label class="radio" for="cemail">Email</label>
-          <input type="radio" name="contact" id="cphone" value="cphone" />
-          <label class="radio" for="cphone">Phone</label>
-
+          <input type="radio" name="contact" id="cemail" checked/>
+          <label class="radiotype" for="cemail">Email</label>
+          <input type="radio" name="contact" id="cphone" />
+          <label class="radiotype" for="cphone">Phone</label>
+          <!--Flag/Acknowledgement-->
         <li id="alert">
             <p class="confirm"></p>
         </li>
+        <!--Submit/Sign Up-->
         <li class="tosubmit">
           <input type="submit" name="signup" id="signup" value="Sign Up!" />
         </li>
